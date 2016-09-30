@@ -74,7 +74,11 @@ def getWordScore(word, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     returns: int >= 0
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    score = 0
+    for char in word:
+        score += SCRABBLE_LETTER_VALUES[char]
+    score *= len(word)
+    return score + 50 if len(word) == n else score
 
 
 #
@@ -202,7 +206,9 @@ def playHand(hand, wordList, n):
       n: integer (HAND_SIZE; i.e., hand size required for additional points)
       
     """
-    # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
+    # BEGIN PSEUDOCODE <-- Remove this comment when you code this function;
+    # do your coding within the pseudocode (leaving those comments in-place!)
+
     # Keep track of the total score
 
     # As long as there are still letters left in the hand:
@@ -252,7 +258,6 @@ def playGame(wordList):
     print("playGame not yet implemented.")  # <-- Remove this line when you code the function
 
 
-#
 # Build data structures used for entire session and play game
 #
 if __name__ == '__main__':
