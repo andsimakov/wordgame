@@ -41,6 +41,7 @@ def compChooseWord(hand, wordList, n):
     # return the best word you found.
     return bestWord
 
+
 #
 # Computer plays a hand
 #
@@ -66,7 +67,7 @@ def compPlayHand(hand, wordList, n):
     # Keep track of the total score
     totalScore = 0
     # As long as there are still letters left in the hand:
-    while (calculateHandlen(hand) > 0) :
+    while (calculateHandlen(hand) > 0):
         # Display the hand
         print("Current Hand: ", end=' ')
         displayHand(hand)
@@ -76,26 +77,26 @@ def compPlayHand(hand, wordList, n):
         if word == None:
             # End the game (break out of the loop)
             break
-            
+
         # Otherwise (the input is not a single period):
-        else :
+        else:
             # If the word is not valid:
-            if (not isValidWord(word, hand, wordList)) :
+            if (not isValidWord(word, hand, wordList)):
                 print('This is a terrible error! I need to check my own code!')
                 break
             # Otherwise (the word is valid):
-            else :
+            else:
                 # Tell the user how many points the word earned, and the updated total score 
                 score = getWordScore(word, n)
                 totalScore += score
-                print('"' + word + '" earned ' + str(score) + ' points. Total: ' + str(totalScore) + ' points')              
+                print('"' + word + '" earned ' + str(score) + ' points. Total: ' + str(totalScore) + ' points')
                 # Update hand and show the updated hand to the user
                 hand = updateHand(hand, word)
                 print()
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
     print('Total score: ' + str(totalScore) + ' points.')
 
-    
+
 #
 # Problem #6: Playing a game
 #
@@ -125,14 +126,12 @@ def playGame(wordList):
     wordList: list (string)
     """
     # TO DO... <-- Remove this comment when you code this function
-    print("playGame not yet implemented.") # <-- Remove this when you code this function
+    print("playGame not yet implemented.")  # <-- Remove this when you code this function
 
-        
+
 #
 # Build data structures used for entire session and play game
 #
 if __name__ == '__main__':
     wordList = loadWords()
     playGame(wordList)
-
-
