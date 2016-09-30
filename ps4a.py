@@ -173,7 +173,13 @@ def isValidWord(word, hand, wordList):
     hand: dictionary (string -> int)
     wordList: list of lowercase strings
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    if word not in wordList:
+        return False
+    else:
+        for char in word:
+            if char not in hand or word.count(char) > hand.get(char):
+                return False
+    return True
 
 
 #
