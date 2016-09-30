@@ -150,7 +150,13 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    updHand = hand.copy()
+    for char in word:
+        if updHand[char] == 1:
+            del updHand[char]
+        else:
+            updHand[char] = updHand.get(char) - 1
+    return updHand
 
 
 #
