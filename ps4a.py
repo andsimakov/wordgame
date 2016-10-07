@@ -222,7 +222,7 @@ def playHand(hand, wordList, n):
     """
     # Keep track of the total score
     total_score = word_score = 0
-    message = 'Run out of letters. '
+    message = 'Run out of letters.'
 
     # As long as there are still letters left in the hand:
     while sum(hand.values()):
@@ -236,7 +236,7 @@ def playHand(hand, wordList, n):
         # If the input is a single period:
         # End the game (break out of the loop)
         if word == '.':
-            message = 'Goodbye! '
+            message = 'Goodbye!'
             break
 
         # Otherwise (the input is not a single period):
@@ -255,7 +255,7 @@ def playHand(hand, wordList, n):
             hand = updateHand(hand, word)
 
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
-    print('{}Total score: {} points.'.format(message, total_score))
+    print('{} Total score: {} points.'.format(message, total_score))
 
 
 #
@@ -273,8 +273,7 @@ def playGame(wordList):
  
     2) When done playing the hand, repeat from step 1    
     """
-    # TO DO ... <-- Remove this comment when you code this function
-    print("playGame not yet implemented.")  # <-- Remove this line when you code the function
+    pass
 
 
 # Build data structures used for entire session and play game
