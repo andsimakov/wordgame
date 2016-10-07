@@ -100,7 +100,6 @@ def compPlayHand(hand, wordList, n):
 #
 # Problem #6: Playing a game
 #
-#
 def playGame(wordList):
     """
     Allow the user to play an arbitrary number of hands.
@@ -125,13 +124,40 @@ def playGame(wordList):
 
     wordList: list (string)
     """
-    # TO DO... <-- Remove this comment when you code this function
-    print("playGame not yet implemented.")  # <-- Remove this when you code this function
+    last_hand = {}
+    while True:
+        game_choice = input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ').lower()
+        if game_choice == 'e':
+            break
+
+        elif game_choice == 'n':
+            last_hand = dealHand(HAND_SIZE)
+
+        elif game_choice == 'r':
+            if not last_hand:
+                print('You have not played a hand yet. Please play a new hand first!\n')
+                continue
+
+        else:
+            print('Invalid command.\n')
+            continue
+
+        while True:
+            gamer_choice = input('Enter u to have yourself play, c to have the computer play: ').lower()
+            if gamer_choice == 'c':
+                compPlayHand(last_hand, wordList, HAND_SIZE)
+                break
+            elif gamer_choice == 'u':
+                playHand(last_hand, wordList, HAND_SIZE)
+                break
+            else:
+                print('Invalid command.\n')
 
 
 #
 # Build data structures used for entire session and play game
 #
 if __name__ == '__main__':
+
     wordList = loadWords()
     playGame(wordList)

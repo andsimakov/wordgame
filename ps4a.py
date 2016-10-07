@@ -295,7 +295,7 @@ def playGame(wordList):
             else:
                 playHand(last_hand, wordList, HAND_SIZE)
 
-        # If 'e' entered, tell the input is wrong
+        # If 'e' entered, quit the game
         elif step == 'e':
             break
 
