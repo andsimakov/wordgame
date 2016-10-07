@@ -255,12 +255,13 @@ def playHand(hand, wordList, n):
             hand = updateHand(hand, word)
 
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
-    print('{} Total score: {} points.'.format(message, total_score))
+    print('{} Total score: {} points.\n'.format(message, total_score))
 
 
 #
 # Problem #5: Playing a game
 #
+
 def playGame(wordList):
     """
     Allow the user to play an arbitrary number of hands.
@@ -273,7 +274,34 @@ def playGame(wordList):
  
     2) When done playing the hand, repeat from step 1    
     """
-    pass
+    # Assign the empty hand
+    last_hand = {}
+
+    while True:
+        # Ask user about game option
+        step = input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ').lower()
+
+        # If 'n' entered, generate new hand
+        if step == 'n':
+            # Generating new hand
+            last_hand = dealHand(HAND_SIZE)
+            playHand(last_hand, wordList, HAND_SIZE)
+
+        # If 'r' entered, replay the last hand
+        elif step == 'r':
+            # Check if any hand has been played before
+            if not last_hand:
+                print('You have not played a hand yet. Please play a new hand first!\n')
+            else:
+                playHand(last_hand, wordList, HAND_SIZE)
+
+        # If 'e' entered, tell the input is wrong
+        elif step == 'e':
+            break
+
+        # If ath else entered, tell the input is wrong
+        else:
+            print('Invalid command.')
 
 
 # Build data structures used for entire session and play game
